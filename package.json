@@ -1,0 +1,30 @@
+{
+  "name": "TiWindowStack",
+  "version": "1.0.0",
+  "description": "Manage iPhone and Android windows in same code base",
+  "main": "./WindowStack.js",
+  "titaniumManifest": {
+    "guid": "650ca435-0741-f46a-042f-e2f5f2ff0ae6",
+    "moduleid": "TiWindowStack"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/HazemKhaled/TiWindowStack.git"
+  },
+  "author": {
+    "name": "Hazem Khaled",
+    "email": "hazem.khaled@gmail.com",
+    "url": "http://about.me/hazemkhaled"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/HazemKhaled/TiWindowStack/issues"
+  },
+  "homepage": "https://github.com/HazemKhaled/TiWindowStack",
+  "keywords": [
+    "titanium",
+    "titaniumifier",
+    "ios",
+    "android"
+  ]
+}
