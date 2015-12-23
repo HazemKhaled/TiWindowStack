@@ -4,7 +4,9 @@ function WindowStack() {
 	var navigationWindow = null,
 		// Windows array for history pepuse
 		windows = [],
-		that = this;
+		that = this,
+		ANDROID = Ti.Platform.name === 'android',
+		IOS = !ANDROID && (Ti.Platform.name === 'iPhone OS');
 
 	this.setNavigationWindow = function(_navigationWindow) {
 		navigationWindow = _navigationWindow;
@@ -12,7 +14,7 @@ function WindowStack() {
 
 	this.open = function(_window, drawer) {
 
-		if (OS_IOS) {
+		if (IOS) {
 
 			// Create navigationWindow if we don't have, or if we have side menu
 			if (navigationWindow === null || drawer) {
@@ -65,7 +67,7 @@ function WindowStack() {
 
 	this.close = function(_window) {
 
-		if (OS_IOS) {
+		if (IOS) {
 			navigationWindow.closeWindow(_window);
 		} else {
 			_window.close();
@@ -101,7 +103,7 @@ function WindowStack() {
 
 	// Close all screens, close the navigationWindow
 	this.destroy = function() {
-		if (OS_IOS) {
+		if (IOS) {
 			navigationWindow.close();
 		} else {
 			_.each(windows, function(_window) {
