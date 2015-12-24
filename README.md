@@ -6,6 +6,16 @@ Download the latest distribution [ZIP-file](https://github.com/HazemKhaled/TiWid
 
 `$ gittio install ti-window-stack`
 
+## Examples
+### [Example #1](https://github.com/HazemKhaled/SideMenu-with-NavigationWindow-for-Titanium) 
+Side menu example using [Fokke Drawer Widget](http://gitt.io/component/nl.fokkezb.drawer) over [NappDrawer](http://gitt.io/component/dk.napp.drawer) or [DrawerLayout](https://github.com/manumaticx/Ti.DrawerLayout) 
+![gif](https://raw.githubusercontent.com/hazemkhaled/SideMenu-with-NavigationWindow-for-Titanium/master/screens/iphone.gif) ![gif](https://raw.githubusercontent.com/hazemkhaled/SideMenu-with-NavigationWindow-for-Titanium/master/screens/android.gif)
+
+### [Example #2](https://github.com/HazemKhaled/TiTODOs)
+Simple Todo app
+
+![gif](https://raw.githubusercontent.com/hazemkhaled/TiTODOs/master/screen.gif)
+
 ## How to
 Soon
 
