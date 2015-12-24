@@ -1,7 +1,7 @@
 # TiWidowStack
 Manage iPhone and Android windows in same code base
 
-## Get it [![gitTio](http://gitt.io/badge.svg)](http://gitt.io/component/TiWidowStack)
+## Get it [![gitTio](http://gitt.io/badge.svg)](http://gitt.io/component/TiWindowStack)
 Download the latest distribution [ZIP-file](https://github.com/HazemKhaled/TiWidowStack/releases) and consult the [Titanium Documentation](http://docs.appcelerator.com/titanium/latest/#!/guide/Using_a_Module) on how install it, or simply use the [gitTio CLI](http://gitt.io/cli):
 
 `$ gittio install ti-window-stack`
