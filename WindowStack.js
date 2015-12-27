@@ -47,6 +47,19 @@ function WindowStack() {
 				// Since android center item is view not a window, we have to fire it ourselves
 				_window.fireEvent('open');
 
+				// Generate Android menu
+				if (_window.hasOwnProperty('onCreateOptionsMenu')) {
+					var activity = drawer.window.getActivity();
+					activity.onCreateOptionsMenu = _window.onCreateOptionsMenu;
+
+					// Try to refresh menus
+					try {
+						activity.invalidateOptionsMenu();
+					} catch (e) {
+						Ti.API.warn('Maybe we still do not have activity to update the menu, it works now by the way');
+					}
+				}
+
 				drawer.setCenterWindow(_window);
 
 				// Reset our local stack refrance
