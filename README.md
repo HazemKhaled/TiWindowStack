@@ -23,4 +23,6 @@ Soon
 Your issues and pull requests are most welcome..
 
 ### Changelog
+**v1.0.1**<br>Now you can modify Android menu of the drawer container window directly from your center view
+
 **v1.0.0**<br>1st version with home, back and destroy methods
