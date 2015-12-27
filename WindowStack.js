@@ -48,16 +48,22 @@ function WindowStack() {
 				_window.fireEvent('open');
 
 				// Generate Android menu
-				if (_window.hasOwnProperty('onCreateOptionsMenu')) {
-					var activity = drawer.window.getActivity();
-					activity.onCreateOptionsMenu = _window.onCreateOptionsMenu;
+				var activity = drawer.window.getActivity();
 
-					// Try to refresh menus
-					try {
-						activity.invalidateOptionsMenu();
-					} catch (e) {
-						Ti.API.warn('Maybe we still do not have activity to update the menu, it works now by the way');
+				activity.onCreateOptionsMenu = function(e) {
+					// Clean up all items from any other controller
+					e.menu.clear();
+
+					if (_window.hasOwnProperty('onCreateOptionsMenu')) {
+						_window.onCreateOptionsMenu(e);
 					}
+				};
+
+				// Try to refresh menus if the activity created
+				try {
+					activity.invalidateOptionsMenu();
+				} catch (e) {
+					Ti.API.warn('Maybe we still do not have activity to update the menu, it works now by the way');
 				}
 
 				drawer.setCenterWindow(_window);
