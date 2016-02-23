@@ -106,16 +106,16 @@ function WindowStack() {
 			interval;
 
 		Alloy.Globals.homeInterval = interval = setInterval(function() {
-			if (lastLength === windows.length) {
+			if (lastLength === windows.length && windows.length) {
 				Alloy.Globals.windowStack.back();
 				lastLength--;
+			}
+			
+			if (lastLength === 0 ||
+				// Center window is actually view on Android
+				windows[lastLength - 1].apiName === 'View') {
 
-				if (lastLength === 0 ||
-					// Center window is actually view on Android
-					windows[lastLength - 1].apiName === 'View') {
-
-					clearInterval(Alloy.Globals.homeInterval);
-				}
+				clearInterval(Alloy.Globals.homeInterval);
 			}
 		}, 100);
 	};
