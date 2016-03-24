@@ -122,11 +122,18 @@ function WindowStack() {
 		}, 100);
 	};
 
-	// Close all screens, close the navigationWindow
-	this.destroy = function() {
-		if (IOS) {
+	// Close all screens, close the navigationWindow or drawer
+	this.destroy = function(drawer, closeCallBack) {
+
+		if (drawer) {
+			closeCallBack && drawer.addEventListener('close', closeCallBack);
+			drawer.close();
+		} else if (IOS) {
+			closeCallBack && navigationWindow.addEventListener('close', closeCallBack);
 			navigationWindow.close();
 		} else {
+			closeCallBack && _.last(windows).addEventListener('close', closeCallBack);
+
 			_.each(windows, function(_window) {
 				_window.close();
 			});
