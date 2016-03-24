@@ -1,6 +1,6 @@
 {
   "name": "ti-window-stack",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Manage iPhone and Android windows in same code base",
   "main": "./WindowStack.js",
   "titaniumManifest": {
