@@ -112,7 +112,7 @@ function WindowStack() {
 
 				if (lastLength === 0 ||
 					// Center window is actually view on Android
-					windows[lastLength - 1].apiName === 'View') {
+					windows[lastLength - 1].apiName === 'Ti.UI.View') {
 
 					clearInterval(Alloy.Globals.homeInterval);
 				}
