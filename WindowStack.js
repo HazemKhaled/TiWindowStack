@@ -44,6 +44,8 @@ function WindowStack() {
 				// Extend some properties to drawer containner
 				_.extend(drawer.window, _.pick(_window, ['title', 'keepScreenOn', 'exitOnClose']));
 
+				_.last(windows).fireEvent('close');
+
 				// Since android center item is view not a window, we have to fire it ourselves
 				_window.fireEvent('open');
 
