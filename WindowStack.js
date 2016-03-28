@@ -1,3 +1,8 @@
+/**
+ * An Alloy widget to manage windows stack in same code for iOS and Android, with drawer support
+ *
+ * more https://github.com/HazemKhaled/TiWindowStack
+ */
 function WindowStack() {
 
 	// The navigation object for iOS
@@ -8,10 +13,22 @@ function WindowStack() {
 		ANDROID = Ti.Platform.name === 'android',
 		IOS = !ANDROID && (Ti.Platform.name === 'iPhone OS');
 
+	/**
+	 * Set external created NavigationWindow
+	 * @param  Ti.UI.NavigationWindow _navigationWindow	NavigationWindow to set
+	 */
 	this.setNavigationWindow = function(_navigationWindow) {
 		navigationWindow = _navigationWindow;
 	};
 
+	/**
+	 * Open window into the stack, you can pass instance from nl.fokkezb.drawer to open this
+	 * window into drawer center window.
+	 *
+	 * nl.fokkezb.drawer require Ti.UI.View for Android and Window for iOS
+	 * @param  Ti.UI.Window/Ti.UI.View	_window	Window/View to open
+	 * @param  nl.fokkezb.drawer				drawer	nl.fokkezb.drawer instance
+	 */
 	this.open = function(_window, drawer) {
 
 		if (IOS) {
@@ -84,6 +101,10 @@ function WindowStack() {
 		});
 	};
 
+	/**
+	 * Pop window from the stack
+	 * @param  Ti.UI.Window/Ti.UI.View	_window	Window/View to open
+	 */
 	this.close = function(_window) {
 
 		if (IOS) {
@@ -120,7 +141,11 @@ function WindowStack() {
 		}, 100);
 	};
 
-	// Close all screens, close the navigationWindow or drawer
+	/**
+	 * Close all Windows, close the navigationWindow or drawer
+	 * @param  nl.fokkezb.drawer	drawer        (Optional) Drwer to close
+	 * @param  function						closeCallBack (Optional) Will call it after close last screen
+	 */
 	this.destroy = function(drawer, closeCallBack) {
 
 		if (drawer) {
@@ -140,7 +165,10 @@ function WindowStack() {
 
 }
 
-// Return new instance
+/**
+ * Create new instance
+ * @return WindowStack New instance
+ */
 exports.createWindowStack = function() {
 	return new WindowStack();
 };
