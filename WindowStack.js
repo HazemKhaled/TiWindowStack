@@ -14,6 +14,12 @@ function WindowStack() {
 		IOS = !ANDROID && (Ti.Platform.name === 'iPhone OS');
 
 	/**
+	 * Who i am?
+	 * @type String
+	 */
+	this.apiName = 'ti-window-stack';
+
+	/**
 	 * Set external created NavigationWindow
 	 * @param  Ti.UI.NavigationWindow _navigationWindow	NavigationWindow to set
 	 */
