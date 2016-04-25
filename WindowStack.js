@@ -14,14 +14,14 @@ function WindowStack() {
 		IOS = !ANDROID && (Ti.Platform.name === 'iPhone OS');
 
 	/**
-	 * Who i am?
-	 * @type String
+	 * Who am i?
+	 * @type {String}
 	 */
 	this.apiName = 'ti-window-stack';
 
 	/**
 	 * Set external created NavigationWindow
-	 * @param  Ti.UI.NavigationWindow _navigationWindow	NavigationWindow to set
+	 * @param  {Ti.UI.NavigationWindow} _navigationWindow	NavigationWindow to set
 	 */
 	this.setNavigationWindow = function(_navigationWindow) {
 		navigationWindow = _navigationWindow;
@@ -32,8 +32,9 @@ function WindowStack() {
 	 * window into drawer center window.
 	 *
 	 * nl.fokkezb.drawer require Ti.UI.View for Android and Window for iOS
-	 * @param  Ti.UI.Window/Ti.UI.View	_window	Window/View to open
-	 * @param  nl.fokkezb.drawer				drawer	nl.fokkezb.drawer instance
+	 * @param  {Ti.UI.Window/Ti.UI.View}	_window			Window/View to open
+	 * @param  {nl.fokkezb.drawer}				drawer			nl.fokkezb.drawer instance
+	 * @return {VOID}
 	 */
 	this.open = function(_window, drawer) {
 
@@ -109,7 +110,7 @@ function WindowStack() {
 
 	/**
 	 * Pop window from the stack
-	 * @param  Ti.UI.Window/Ti.UI.View	_window	Window/View to open
+	 * @param  {Ti.UI.Window}/{Ti.UI.View}	_window	Window/View to open
 	 */
 	this.close = function(_window) {
 
@@ -149,8 +150,8 @@ function WindowStack() {
 
 	/**
 	 * Close all Windows, close the navigationWindow or drawer
-	 * @param  nl.fokkezb.drawer	drawer        (Optional) Drwer to close
-	 * @param  function						closeCallBack (Optional) Will call it after close last screen
+	 * @param  {nl.fokkezb.drawer}	drawer        (Optional) Drwer to close
+	 * @param  {function}						closeCallBack (Optional) Will call it after close last screen
 	 */
 	this.destroy = function(drawer, closeCallBack) {
 
@@ -173,7 +174,7 @@ function WindowStack() {
 
 /**
  * Create new instance
- * @return WindowStack New instance
+ * @return {WindowStack}	New instance of WindowStack
  */
 exports.createWindowStack = function() {
 	return new WindowStack();
