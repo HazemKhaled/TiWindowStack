@@ -20,11 +20,45 @@ function WindowStack() {
 	this.apiName = 'ti-window-stack';
 
 	/**
+	 * Constant to open the window into the center of the drawer
+	 * @type {Number}
+	 */
+	this.CENTER_WINDOW = 101;
+
+	/**
+	 * Constant to open the window into the right of the drawer
+	 * @type {Number}
+	 */
+	this.RIGHT_WINDOW = 102;
+
+	/**
+	 * Constant to open the window into the left of the drawer
+	 * @type {Number}
+	 */
+	this.LEFT_WINDOW = 103;
+
+	/**
+	 * Which side to open new window in the drawer, center is default
+	 * @type {NUMBER}
+	 */
+	this.targetInDrawer = this.CENTER_WINDOW;
+
+	/**
 	 * Set external created NavigationWindow
 	 * @param  {Ti.UI.NavigationWindow} _navigationWindow	NavigationWindow to set
 	 */
 	this.setNavigationWindow = function(_navigationWindow) {
 		navigationWindow = _navigationWindow;
+	};
+
+	/**
+	 * targetInDrawer setter
+	 * @param  {NUMBER}	targetInDrawer	WindowStack.CENTER_WINDOW, WindowStack.RIGHT_WINDOW or WindowStack.LEFT_WINDOW
+	 */
+	this.setTargetInDrawer = function (targetInDrawer) {
+		if ([that.CENTER_WINDOW, that.RIGHT_WINDOW, that.LEFT_WINDOW].indexOf(targetInDrawer) !== -1){
+			this.targetInDrawer = targetInDrawer;
+		}
 	};
 
 	/**
@@ -47,7 +81,16 @@ function WindowStack() {
 				});
 
 				if (drawer) {
-					drawer.setCenterWindow(navigationWindow);
+					// Open the window in center, right or left?
+					var openIn = 'setCenterWindow';
+					if (that.targetInDrawer === that.RIGHT_WINDOW) {
+						openIn = 'setRightWindow';
+					} else if (that.targetInDrawer === that.LEFT_WINDOW) {
+						openIn = 'setLeftWindow';
+					}
+
+					// Open the window into the drawer
+					drawer[openIn](navigationWindow);
 				} else {
 					navigationWindow.open();
 				}
@@ -90,7 +133,16 @@ function WindowStack() {
 					Ti.API.warn('Maybe we still do not have activity to update the menu, it works now by the way');
 				}
 
-				drawer.setCenterWindow(_window);
+				// Open the window in center, right or left?
+				var openIn = 'setCenterWindow';
+				if (that.targetInDrawer === that.RIGHT_WINDOW) {
+					openIn = 'setRightWindow';
+				} else if (that.targetInDrawer === that.LEFT_WINDOW) {
+					openIn = 'setLeftWindow';
+				}
+
+				// Open the window into the drawer
+				drawer[openIn](_window);
 
 				// Reset our local stack refrance
 				windows = [];
