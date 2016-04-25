@@ -29,6 +29,10 @@ Check [#Examples](#examples) for now
 Your issues and pull requests are most welcome..
 
 ### Changelog
+**v1.1.0**<br>Allow to manage right or left side menus window stack, [related issue](https://github.com/viezel/NappDrawer/issues/188)
+```javascript
+windowStack.setTargetInDrawer(windowStack.LEFT_WINDOW);
+```
 
 **v1.0.4**<br>
 Fix window can't close on Android
