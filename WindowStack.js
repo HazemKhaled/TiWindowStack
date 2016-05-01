@@ -208,7 +208,9 @@ function WindowStack() {
 	this.destroy = function(drawer, closeCallBack) {
 
 		if (drawer) {
-			closeCallBack && drawer.addEventListener('close', closeCallBack);
+			if (closeCallBack) {
+				IOS ? drawer.addEventListener('close', closeCallBack) : drawer.window.addEventListener('close', closeCallBack);
+			}
 			drawer.close();
 		} else if (IOS) {
 			closeCallBack && navigationWindow.addEventListener('close', closeCallBack);
