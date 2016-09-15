@@ -29,6 +29,10 @@ Check [#Examples](#examples) for now
 Your issues and pull requests are most welcome..
 
 ### Changelog
+**v1.1.2**
+<br>Now home function can work without the noisy effect, thanks @Claymm
+<br>Fix bug with Titanium SDK 5.5.0.GA
+
 **v1.1.1**<br>Fix destroy on Android can't call callback function
 
 **v1.1.0**<br>Allow to manage right or left side menus window stack, [related issue](https://github.com/viezel/NappDrawer/issues/188)
@@ -37,7 +41,7 @@ windowStack.setTargetInDrawer(windowStack.LEFT_WINDOW);
 ```
 
 **v1.0.4**<br>
-Fix window can't close on Android
+Fix window can't close on Android by @DouglasHennrich
 
 **v1.0.3**<br>
 Better implementation for home method
