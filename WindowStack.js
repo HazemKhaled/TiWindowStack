@@ -11,7 +11,8 @@ function WindowStack() {
 		windows = [],
 		that = this,
 		ANDROID = Ti.Platform.name === 'android',
-		IOS = !ANDROID && (Ti.Platform.name === 'iPhone OS');
+		// Since Ti 5.5.0.GA Ti.Platform.name return 'iOS' instead of 'iPhone OS'
+		IOS = Ti.Platform.name === 'iPhone OS' || Ti.Platform.name === 'iOS';
 
 	/**
 	 * Who am i?
