@@ -30,7 +30,7 @@ Your issues and pull requests are most welcome..
 
 ### Changelog
 **v1.1.2**
-<br>Now home function can work without the noisy effect, thanks @Claymm
+<br>Now home function can work without the noisy effect, thanks [@Claymm](https://github.com/Claymm)
 <br>Fix bug with Titanium SDK 5.5.0.GA
 
 **v1.1.1**<br>Fix destroy on Android can't call callback function
@@ -41,7 +41,7 @@ windowStack.setTargetInDrawer(windowStack.LEFT_WINDOW);
 ```
 
 **v1.0.4**<br>
-Fix window can't close on Android by @DouglasHennrich
+Fix window can't close on Android
 
 **v1.0.3**<br>
 Better implementation for home method
