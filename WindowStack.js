@@ -181,23 +181,45 @@ function WindowStack() {
 		that.close(_window);
 	};
 
-	this.home = function() {
+	/**
+	 * By default, closes all the windows, one after the other, starting for the current window.
+	 * User sees all the windows getting closed.
+	 *
+	 * @param  bool _direct Closes all other windows except the last one (so users don't see the
+	 *                      other windows getting closed) and finally closes the current window.
+	 * @return void
+	 */
+	this.home = function(_params) {
+		_params = _params || { animated: true };
+
 		var lastLength = windows.length,
 			interval;
 
-		Alloy.Globals.homeInterval = interval = setInterval(function() {
-			if (lastLength === windows.length) {
-				Alloy.Globals.windowStack.back();
-				lastLength--;
+		if (_params.animated) {
+			Alloy.Globals.homeInterval = interval = setInterval(function() {
+				if (lastLength === windows.length) {
+					Alloy.Globals.windowStack.back();
+					lastLength--;
 
-				if (lastLength === 0 ||
-					// Center window is actually view on Android
-					windows[lastLength - 1].apiName === 'Ti.UI.View') {
-
-					clearInterval(Alloy.Globals.homeInterval);
+					if (lastLength === 0 ||
+						// Center window is actually view on Android
+						windows[lastLength - 1].apiName === 'Ti.UI.View') {
+						clearInterval(Alloy.Globals.homeInterval);
+					}
 				}
-			}
-		}, 100);
+			}, 100);
+		} else {
+            var lastWindow = _.last(windows);
+            var rest       = _.without(windows, lastWindow);
+
+            rest.forEach(function(window, index){
+                if (index === 0 && window.apiName === 'Ti.UI.View') {
+					return;
+				}
+				that.close(window);
+            });
+			that.close(lastWindow);
+		}
 	};
 
 	/**
