@@ -29,6 +29,9 @@ Check [#Examples](#examples) for now
 Your issues and pull requests are most welcome..
 
 ### Changelog
+**v1.1.3**
+<br>Fix back compatibility with iOS 9.3
+
 **v1.1.2**
 <br>Now home function can work without the noisy effect, thanks [@Claymm](https://github.com/Claymm)
 <br>Fix bug with Titanium SDK 5.5.0.GA
