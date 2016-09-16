@@ -11,7 +11,8 @@ function WindowStack() {
 		windows = [],
 		that = this,
 		ANDROID = Ti.Platform.name === 'android',
-		// Since Ti 5.5.0.GA Ti.Platform.name return 'iOS' instead of 'iPhone OS'
+		// Since iOS 10 Ti.Platform.name return 'iOS' instead of 'iPhone OS'
+		// https://jira.appcelerator.org/browse/TIDOC-2611
 		IOS = Ti.Platform.name === 'iPhone OS' || Ti.Platform.name === 'iOS';
 
 	/**
