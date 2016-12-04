@@ -72,7 +72,7 @@ function WindowStack() {
 	 * @param  {nl.fokkezb.drawer}				drawer			nl.fokkezb.drawer instance
 	 * @return {VOID}
 	 */
-	this.open = function(_window, drawer) {
+	this.open = function(_window, drawer, opts) {
 
 		if (IOS) {
 
@@ -94,7 +94,7 @@ function WindowStack() {
 					// Open the window into the drawer
 					drawer[openIn](navigationWindow);
 				} else {
-					navigationWindow.open();
+					navigationWindow.open(_.extend({}, opts));
 				}
 
 				// Reset our local stack refrance
