@@ -101,10 +101,10 @@ function WindowStack() {
                 // Reset our local stack refrance
                 windows = [];
             } else {
+                // Add this window to my stack reference
+                windows.push(_window);
                 // Or just push new window to the stack
                 navigationWindow.openWindow(_window);
-                // Add this window to my stack refrance
-                windows.push(_window);
             }
         } else {
 
@@ -148,10 +148,10 @@ function WindowStack() {
                 // Reset our local stack refrance
                 windows = [];
             } else {
-                _window.open();
-
-                // Add this window to my stack refrance
+                // Add this window to my stack reference
                 windows.push(_window);
+                // Open the window
+                _window.open();
             }
         }
 
