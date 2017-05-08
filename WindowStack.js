@@ -76,6 +76,7 @@ function WindowStack() {
 
         if (IOS) {
 
+            console.warn(navigationWindow);
             // Create navigationWindow if we don't have, or if we have side menu
             if (navigationWindow === null || drawer) {
                 navigationWindow = Ti.UI.iOS.createNavigationWindow({
@@ -100,10 +101,8 @@ function WindowStack() {
                 // Reset our local stack refrance
                 windows = [];
             } else {
-
                 // Or just push new window to the stack
                 navigationWindow.openWindow(_window);
-
                 // Add this window to my stack refrance
                 windows.push(_window);
             }
@@ -160,6 +159,10 @@ function WindowStack() {
         _window.addEventListener('close', function() {
             windows = _.without(windows, _window);
         });
+    };
+
+    this.size = function() {
+        return windows.length;
     };
 
     /**
