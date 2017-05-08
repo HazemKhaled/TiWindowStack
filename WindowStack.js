@@ -78,12 +78,16 @@ function WindowStack()
      * Open window into the stack, you can pass instance from nl.fokkezb.drawer to open this
      * window into drawer center window.
      *
-     * @param  {Ti.UI.Window/Ti.UI.View} _window Window/View to open
-     * @param  {nl.fokkezb.drawer} drawer nl.fokkezb.drawer instance
+     * @param  {Ti.UI.Window/Ti.UI.View} _window Window/View to open.
+     * @param  {nl.fokkezb.drawer} drawer nl.fokkezb.drawer instance. (Optional)
+     * @param  {openWindowParams} params Animation or display properties to use when opening the window. (Optional)
      * @return {void}
      */
-    this.open = function(_window, drawer)
+    this.open = function(_window, drawer, params)
     {
+        drawer = drawer || false;
+        params = params || {};
+
         if (IOS) {
             // Create navigationWindow if we don't have, or if we have side menu
             if (navigationWindow === null || drawer) {
@@ -102,7 +106,7 @@ function WindowStack()
                     // Open the window into the drawer
                     drawer[openIn](navigationWindow);
                 } else {
-                    navigationWindow.open();
+                    navigationWindow.open(params);
                 }
 
                 // Reset our local stack refrance
@@ -153,7 +157,7 @@ function WindowStack()
                 // Add this window to my stack reference
                 windows.push(_window);
                 // Open the window
-                _window.open();
+                _window.open(params);
             }
         }
 
