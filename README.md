@@ -1,6 +1,6 @@
 # TiWidowStack
 
-Manage iPhone and Android windows in same code base
+Manage iPhone and Android windows in same code base.
 
 ## Get it [![gitTio](http://gitt.io/badge.svg)](http://gitt.io/component/ti-window-stack)
 
@@ -26,34 +26,50 @@ Check [#Examples](#examples) for now
 
 ## Contributions
 
-Your issues and pull requests are most welcome..
+Your issues and pull requests are most welcome.
 
 ### Changelog
+
+**v1.1.4**
+
+* Untabify (using 4 spaces tabs).
+* Adding public function `size()`.
+* Change the order we interact with the stack before opening a new window.
+* Linting + documentation.
+
 **v1.1.3**
-<br>Fix back compatibility with iOS 9.3
+
+* Fix back compatibility with iOS 9.3.
 
 **v1.1.2**
-<br>Now home function can work without the noisy effect, thanks [@Claymm](https://github.com/Claymm)
-<br>Fix bug with Titanium SDK 5.5.0.GA
 
-**v1.1.1**<br>Fix destroy on Android can't call callback function
+* Now home function can work without the noisy effect, thanks [@Claymm](https://github.com/Claymm).
+* Fix bug with Titanium SDK 5.5.0.GA.
 
-**v1.1.0**<br>Allow to manage right or left side menus window stack, [related issue](https://github.com/viezel/NappDrawer/issues/188)
-```javascript
-windowStack.setTargetInDrawer(windowStack.LEFT_WINDOW);
-```
+**v1.1.1**
 
-**v1.0.4**<br>
-Fix window can't close on Android
+* Fix destroy on Android can't call callback function.
 
-**v1.0.3**<br>
-Better implementation for home method
+**v1.1.0**
 
-**v1.0.2**<br>
-Small fix for center window menu in Android
+* Allow to manage right or left side menus window stack, [related issue](https://github.com/viezel/NappDrawer/issues/188): `windowStack.setTargetInDrawer(windowStack.LEFT_WINDOW);`.
 
-**v1.0.1**<br>
-Now you can modify Android menu of the drawer container window directly from your center view
+**v1.0.4**
 
-**v1.0.0**<br>
-1st version with home, back and destroy methods
+* Fix window can't close on Android.
+
+**v1.0.3**
+
+* Better implementation for home method.
+
+**v1.0.2**
+
+* Small fix for center window menu in Android.
+
+**v1.0.1**
+
+* Now you can modify Android menu of the drawer container window directly from your center view.
+
+**v1.0.0**
+
+* First version with home, back and destroy methods.
